@@ -577,7 +577,7 @@
             // CB_SkipIntros
             // 
             this.CB_SkipIntros.AutoSize = true;
-            this.CB_SkipIntros.Location = new System.Drawing.Point(241, 6);
+            this.CB_SkipIntros.Location = new System.Drawing.Point(247, 6);
             this.CB_SkipIntros.Name = "CB_SkipIntros";
             this.CB_SkipIntros.Size = new System.Drawing.Size(15, 14);
             this.CB_SkipIntros.TabIndex = 28;
@@ -588,9 +588,9 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(176, 7);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(59, 13);
+            this.label16.Size = new System.Drawing.Size(65, 13);
             this.label16.TabIndex = 30;
-            this.label16.Text = "Skip intros:";
+            this.label16.Text = "Show intros:";
             // 
             // TB_Language
             // 
