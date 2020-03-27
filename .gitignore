@@ -1,0 +1,6 @@
+# vs garbage
+.vs/
+
+#debug builds
+bin/
+obj/

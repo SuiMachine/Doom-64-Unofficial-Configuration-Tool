@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Doom64-Unofficial-Configuration-Tool", "Doom64-Unofficial-Configuration-Tool.csproj", "{DB1E6D35-ED7E-4466-8916-2C988D26D519}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DB1E6D35-ED7E-4466-8916-2C988D26D519}.Debug|x64.ActiveCfg = Debug|x64
+		{DB1E6D35-ED7E-4466-8916-2C988D26D519}.Debug|x64.Build.0 = Debug|x64
+		{DB1E6D35-ED7E-4466-8916-2C988D26D519}.Release|x64.ActiveCfg = Release|x64
+		{DB1E6D35-ED7E-4466-8916-2C988D26D519}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7CE72747-5F6A-4BD9-A2C0-AA472740C44E}
+	EndGlobalSection
+EndGlobal
