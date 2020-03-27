@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -266,6 +267,11 @@ namespace Doom64_Unofficial_Configuration_Tool
             {
                 MessageBox.Show("IO exception. The config may be protected or currently in use.\n" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void linkPCGW_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Process.Start("https://www.pcgamingwiki.com/wiki/Doom_64");
         }
     }
 }

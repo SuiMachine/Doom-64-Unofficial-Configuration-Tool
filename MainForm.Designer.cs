@@ -74,6 +74,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.toolTipWarning = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_AdditionalInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.linkPCGW = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -106,23 +107,25 @@
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 149F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Controls.Add(this.B_Cancel, 1, 0);
-            this.tableLayoutPanel2.Controls.Add(this.B_Save, 0, 0);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(132, 310);
+            this.tableLayoutPanel2.Controls.Add(this.B_Cancel, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.B_Save, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.linkPCGW, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 310);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(189, 28);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(318, 28);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // B_Cancel
             // 
             this.B_Cancel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.B_Cancel.Location = new System.Drawing.Point(104, 3);
+            this.B_Cancel.Location = new System.Drawing.Point(238, 3);
             this.B_Cancel.Name = "B_Cancel";
             this.B_Cancel.Size = new System.Drawing.Size(75, 22);
             this.B_Cancel.TabIndex = 1;
@@ -133,7 +136,7 @@
             // B_Save
             // 
             this.B_Save.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.B_Save.Location = new System.Drawing.Point(9, 3);
+            this.B_Save.Location = new System.Drawing.Point(153, 3);
             this.B_Save.Name = "B_Save";
             this.B_Save.Size = new System.Drawing.Size(75, 22);
             this.B_Save.TabIndex = 0;
@@ -623,6 +626,18 @@
             this.toolTip_AdditionalInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_AdditionalInfo.ToolTipTitle = "Additional information";
             // 
+            // linkPCGW
+            // 
+            this.linkPCGW.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.linkPCGW.AutoSize = true;
+            this.linkPCGW.Location = new System.Drawing.Point(3, 7);
+            this.linkPCGW.Name = "linkPCGW";
+            this.linkPCGW.Size = new System.Drawing.Size(110, 13);
+            this.linkPCGW.TabIndex = 2;
+            this.linkPCGW.TabStop = true;
+            this.linkPCGW.Text = "PCGamingWiki Article";
+            this.linkPCGW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPCGW_LinkClicked);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -636,6 +651,7 @@
             this.Load += new System.EventHandler(this.MainForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
@@ -701,6 +717,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.CheckBox CB_SkipIntros;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.LinkLabel linkPCGW;
     }
 }
 
