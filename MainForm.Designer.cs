@@ -33,6 +33,7 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.B_Cancel = new System.Windows.Forms.Button();
             this.B_Save = new System.Windows.Forms.Button();
+            this.linkPCGW = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.label14 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -68,13 +69,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.B_LaunchParametersHelper = new System.Windows.Forms.Button();
             this.CB_SkipIntros = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
             this.TB_Language = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.toolTipWarning = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_AdditionalInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.linkPCGW = new System.Windows.Forms.LinkLabel();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -102,7 +103,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 341);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(324, 372);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel2
@@ -115,7 +116,7 @@
             this.tableLayoutPanel2.Controls.Add(this.B_Save, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.linkPCGW, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 310);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 341);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -144,6 +145,18 @@
             this.B_Save.UseVisualStyleBackColor = true;
             this.B_Save.Click += new System.EventHandler(this.B_Save_Click);
             // 
+            // linkPCGW
+            // 
+            this.linkPCGW.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.linkPCGW.AutoSize = true;
+            this.linkPCGW.Location = new System.Drawing.Point(3, 7);
+            this.linkPCGW.Name = "linkPCGW";
+            this.linkPCGW.Size = new System.Drawing.Size(110, 13);
+            this.linkPCGW.TabIndex = 2;
+            this.linkPCGW.TabStop = true;
+            this.linkPCGW.Text = "PCGamingWiki Article";
+            this.linkPCGW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPCGW_LinkClicked);
+            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
@@ -165,7 +178,7 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 158F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 8F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(318, 301);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(318, 332);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // label14
@@ -567,6 +580,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.B_LaunchParametersHelper);
             this.panel2.Controls.Add(this.CB_SkipIntros);
             this.panel2.Controls.Add(this.label16);
             this.panel2.Controls.Add(this.TB_Language);
@@ -574,8 +588,18 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(4, 267);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(310, 30);
+            this.panel2.Size = new System.Drawing.Size(310, 61);
             this.panel2.TabIndex = 5;
+            // 
+            // B_LaunchParametersHelper
+            // 
+            this.B_LaunchParametersHelper.Location = new System.Drawing.Point(80, 30);
+            this.B_LaunchParametersHelper.Name = "B_LaunchParametersHelper";
+            this.B_LaunchParametersHelper.Size = new System.Drawing.Size(144, 23);
+            this.B_LaunchParametersHelper.TabIndex = 31;
+            this.B_LaunchParametersHelper.Text = "Launch parameters helper";
+            this.B_LaunchParametersHelper.UseVisualStyleBackColor = true;
+            this.B_LaunchParametersHelper.Click += new System.EventHandler(this.B_LaunchParametersHelper_Click);
             // 
             // CB_SkipIntros
             // 
@@ -626,23 +650,11 @@
             this.toolTip_AdditionalInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_AdditionalInfo.ToolTipTitle = "Additional information";
             // 
-            // linkPCGW
-            // 
-            this.linkPCGW.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.linkPCGW.AutoSize = true;
-            this.linkPCGW.Location = new System.Drawing.Point(3, 7);
-            this.linkPCGW.Name = "linkPCGW";
-            this.linkPCGW.Size = new System.Drawing.Size(110, 13);
-            this.linkPCGW.TabIndex = 2;
-            this.linkPCGW.TabStop = true;
-            this.linkPCGW.Text = "PCGamingWiki Article";
-            this.linkPCGW.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPCGW_LinkClicked);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 341);
+            this.ClientSize = new System.Drawing.Size(324, 372);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -718,6 +730,7 @@
         private System.Windows.Forms.CheckBox CB_SkipIntros;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.LinkLabel linkPCGW;
+        private System.Windows.Forms.Button B_LaunchParametersHelper;
     }
 }
 

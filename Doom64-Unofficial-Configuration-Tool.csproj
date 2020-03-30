@@ -113,6 +113,12 @@
     <Compile Include="Forms\Keybinds_Editor.Designer.cs">
       <DependentUpon>Keybinds_Editor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\Launch Parameters Helper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Launch Parameters Helper.Designer.cs">
+      <DependentUpon>Launch Parameters Helper.cs</DependentUpon>
+    </Compile>
     <Compile Include="KeyboardBindings.cs" />
     <Compile Include="CustomControls\KeyControlForm.cs">
       <SubType>UserControl</SubType>
@@ -148,6 +154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CustomControls\KeyControlForm.resx">
       <DependentUpon>KeyControlForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Launch Parameters Helper.resx">
+      <DependentUpon>Launch Parameters Helper.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>

@@ -273,5 +273,11 @@ namespace Doom64_Unofficial_Configuration_Tool
         {
             Process.Start("https://www.pcgamingwiki.com/wiki/Doom_64");
         }
+
+        private void B_LaunchParametersHelper_Click(object sender, EventArgs e)
+        {
+            Forms.Launch_Parameters_Helper lph = new Forms.Launch_Parameters_Helper();
+            lph.ShowDialog();
+        }
     }
 }
