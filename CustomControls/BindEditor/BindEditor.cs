@@ -43,7 +43,8 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
             var result = bAddForm.ShowDialog();
             if(result == DialogResult.OK)
             {
-                keysBound.Add(bAddForm.returnedKey);
+                if(!keysBound.Contains(bAddForm.returnedKey))
+                    keysBound.Add(bAddForm.returnedKey);
             }
             RefreshKeys();
         }

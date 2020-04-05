@@ -447,9 +447,9 @@ namespace Doom64_Unofficial_Configuration_Tool
             }
             else
                 return null;
-
         }
 
+        #region OperatorOverloadAndOverrides
         public override string ToString()
         {
 
@@ -477,6 +477,52 @@ namespace Doom64_Unofficial_Configuration_Tool
             else
                 return gamepadButton.GetDescription();
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is KeyMouseWrapper)
+            {
+                var objCast = (KeyMouseWrapper)obj;
+                if (this.keyboardKey != D64Keys.None)
+                    return this.keyboardKey == objCast.keyboardKey;
+                else if (this.mouseKey != D64MouseWheel.None)
+                    return this.mouseKey == objCast.mouseKey;
+                else
+                    return this.gamepadButton == objCast.gamepadButton;
+            }
+            else
+                return false;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
+
+        /*
+        public static bool operator ==(KeyMouseWrapper el1, KeyMouseWrapper el2)
+        {
+            if (el1.keyboardKey != D64Keys.None)
+                return el1.keyboardKey == el2.keyboardKey;
+            else if (el1.mouseKey != D64MouseWheel.None)
+                return el1.mouseKey == el2.mouseKey;
+            else
+                return el1.gamepadButton == el2.gamepadButton;
+        }
+
+        public static bool operator !=(KeyMouseWrapper el1, KeyMouseWrapper el2)
+        {
+            if (el1 != null && el2 == null)
+                return false;
+
+            if (el1.keyboardKey != D64Keys.None)
+                return el1.keyboardKey != el2.keyboardKey;
+            else if (el1.mouseKey != D64MouseWheel.None)
+                return el1.mouseKey != el2.mouseKey;
+            else
+                return el1.gamepadButton != el2.gamepadButton;
+        }*/
+        #endregion
 
         #region ImplicitCasts
         public static implicit operator KeyMouseWrapper(D64Keys keyboardKeyV)

@@ -31,23 +31,23 @@ namespace Doom64_Unofficial_Configuration_Tool
     public enum GamepadKeys
     {
         None,
-        joy_0,
-        joy_1,
-        joy_2,
-        joy_3,
-        joy_4,
+        [Description("Gamepad A")] joy_0,
+        [Description("Gamepad B")] joy_1,
+        [Description("Gamepad X")] joy_2,
+        [Description("Gamepad Y")] joy_3,
+        [Description("Gamepad LT")] joy_4,
         joy_5,
-        joy_6,
-        joy_7,
-        joy_8,
-        joy_9,
-        joy_10,
-        joy_11,
-        joy_12,
-        joy_13,
-        joy_14,
-        joy_15,
-        joy_16
+        [Description("Gamepad RT")] joy_6,
+        [Description("Gamepad Left Analog")] joy_7,
+        [Description("Gamepad Right Analog")] joy_8,
+        [Description("Gamepad Left Bumper")] joy_9,
+        [Description("Gamepad Right Bumper")] joy_10,
+        [Description("Gamepad Dpad Up")] joy_11,
+        [Description("Gamepad Dpad Down")] joy_12,
+        [Description("Gamepad Dpad Left")] joy_13,
+        [Description("Gamepad Dpad Right")] joy_14,
+        [Description("Gamepad Select")] joy_15,
+        [Description("Gamepad Start")] joy_16
     }
 
     public enum D64Keys
@@ -195,7 +195,7 @@ namespace Doom64_Unofficial_Configuration_Tool
         [Description("Right Ctrl")] rctrl = 163,
 
         [Description("Left Alt")] LMenu = 164,
-        [Description("Left Alt")] ralt = 165,    
+        [Description("Right Alt")] ralt = 165,    
         BrowserBack = 166,
         BrowserForward = 167,
         BrowserRefresh = 168,

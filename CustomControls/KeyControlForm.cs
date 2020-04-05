@@ -53,19 +53,19 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls
 
         private void B_AddKey_Click(object sender, EventArgs e)
         {
-            var bindAddForm = new CustomControls.BindEditor.BindAdd();
+            var bindAddForm = new BindEditor.BindAdd();
             var result = bindAddForm.ShowDialog();
             if (result == DialogResult.OK)
             {
-                //TODO: Add comparing, so it doesn't repeat keys.
-                this.keyBindsForAction.Add(bindAddForm.returnedKey);
+                if(!this.keyBindsForAction.Contains(bindAddForm.returnedKey))
+                    this.keyBindsForAction.Add(bindAddForm.returnedKey);
             }
             this.RefreshKeys();
         }
 
         private void B_EditKeys_Click(object sender, EventArgs e)
         {
-            var bindEdit = new CustomControls.BindEditor.BindEditor(keyBindsForAction);
+            var bindEdit = new BindEditor.BindEditor(keyBindsForAction.ToList());
             var result = bindEdit.ShowDialog();
             if(result == DialogResult.OK)
             {
