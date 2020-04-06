@@ -678,7 +678,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox TB_CMDParameters;
         private System.Windows.Forms.LinkLabel link_CMDGuide;
         private System.Windows.Forms.Button B_Close;
         private System.Windows.Forms.Label label2;
@@ -718,5 +717,6 @@
         private System.Windows.Forms.ToolStripMenuItem removeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cancelToolStripMenuItem;
         private System.Windows.Forms.Button B_ParseCMDs;
+        public System.Windows.Forms.TextBox TB_CMDParameters;
     }
 }

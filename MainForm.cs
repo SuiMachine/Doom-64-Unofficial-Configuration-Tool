@@ -17,12 +17,14 @@ namespace Doom64_Unofficial_Configuration_Tool
         readonly string ConfigDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "Saved Games", "Nightdive Studios", "DOOM 64");
         readonly string ConfigFile = "kexengine.cfg";
         readonly string ConfigFileBackup = "kexengine.bak";
+        readonly string AdditionalConfigFileName = "UnofficialConfigurationTool.xml";
 
 
         //A dumb limitation with bindings is that they have to reference public properties. Sad.
         public KeyboardBindings keyBindings { get; set; }
         public VideoSettings videoSettings { get; set; }
         public OtherSettings otherSettings { get; set; }
+        public AdditionalConfig additionalConfig { get; set; }
 
         public MainForm()
         {
@@ -31,6 +33,22 @@ namespace Doom64_Unofficial_Configuration_Tool
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            if(FirstRun())
+            {
+                var legalStuff = new Forms.Legal();
+                var result = legalStuff.ShowDialog();
+                if (result == DialogResult.Yes)
+                {
+                    additionalConfig.ShownedLegal = true;
+                    additionalConfig.Save(Path.Combine(ConfigDir, AdditionalConfigFileName));
+                }
+                else
+                {
+                    Environment.Exit(0);
+                }
+            }
+
+
             if (!Directory.Exists(ConfigDir))
                 Directory.CreateDirectory(ConfigDir);
 
@@ -38,6 +56,12 @@ namespace Doom64_Unofficial_Configuration_Tool
                 File.WriteAllText(Path.Combine(ConfigDir, ConfigFile), Properties.Resources._default);
 
             LoadConfig(Path.Combine(ConfigDir, ConfigFile));
+        }
+
+        private bool FirstRun()
+        {
+            additionalConfig = AdditionalConfig.Load(Path.Combine(ConfigDir, AdditionalConfigFileName));
+            return !additionalConfig.ShownedLegal;
         }
 
         private void LoadConfig(string fileToLoad)
@@ -276,8 +300,19 @@ namespace Doom64_Unofficial_Configuration_Tool
 
         private void B_LaunchParametersHelper_Click(object sender, EventArgs e)
         {
-            Forms.Launch_Parameters_Helper lph = new Forms.Launch_Parameters_Helper();
+            Forms.Launch_Parameters_Helper lph = new Forms.Launch_Parameters_Helper(additionalConfig);
             lph.ShowDialog();
+            if(lph.DialogResult == DialogResult.OK)
+            {
+                additionalConfig.LastUsedCMD = lph.TB_CMDParameters.Text;
+                additionalConfig.Save(Path.Combine(ConfigDir, AdditionalConfigFileName));
+            }
+        }
+
+        private void B_ShowLegalPopup_Click(object sender, EventArgs e)
+        {
+            var legalStuff = new Forms.Legal();
+            var result = legalStuff.ShowDialog();
         }
     }
 }

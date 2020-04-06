@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.B_Cancel = new System.Windows.Forms.Button();
@@ -76,6 +77,7 @@
             this.label15 = new System.Windows.Forms.Label();
             this.toolTipWarning = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_AdditionalInfo = new System.Windows.Forms.ToolTip(this.components);
+            this.B_ShowLegalPopup = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -580,6 +582,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.B_ShowLegalPopup);
             this.panel2.Controls.Add(this.B_LaunchParametersHelper);
             this.panel2.Controls.Add(this.CB_SkipIntros);
             this.panel2.Controls.Add(this.label16);
@@ -593,7 +596,7 @@
             // 
             // B_LaunchParametersHelper
             // 
-            this.B_LaunchParametersHelper.Location = new System.Drawing.Point(80, 30);
+            this.B_LaunchParametersHelper.Location = new System.Drawing.Point(7, 30);
             this.B_LaunchParametersHelper.Name = "B_LaunchParametersHelper";
             this.B_LaunchParametersHelper.Size = new System.Drawing.Size(144, 23);
             this.B_LaunchParametersHelper.TabIndex = 31;
@@ -650,12 +653,23 @@
             this.toolTip_AdditionalInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_AdditionalInfo.ToolTipTitle = "Additional information";
             // 
+            // B_ShowLegalPopup
+            // 
+            this.B_ShowLegalPopup.Location = new System.Drawing.Point(179, 30);
+            this.B_ShowLegalPopup.Name = "B_ShowLegalPopup";
+            this.B_ShowLegalPopup.Size = new System.Drawing.Size(121, 23);
+            this.B_ShowLegalPopup.TabIndex = 32;
+            this.B_ShowLegalPopup.Text = "Show Legal Stuff";
+            this.B_ShowLegalPopup.UseVisualStyleBackColor = true;
+            this.B_ShowLegalPopup.Click += new System.EventHandler(this.B_ShowLegalPopup_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(324, 372);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "MainForm";
@@ -731,6 +745,7 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.LinkLabel linkPCGW;
         private System.Windows.Forms.Button B_LaunchParametersHelper;
+        private System.Windows.Forms.Button B_ShowLegalPopup;
     }
 }
 

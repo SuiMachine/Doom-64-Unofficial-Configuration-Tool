@@ -68,6 +68,9 @@
     <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BigWikiLogo.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -82,6 +85,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdditionalConfig.cs" />
     <Compile Include="CustomControls\BindEditor\BindEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,6 +122,12 @@
     </Compile>
     <Compile Include="Forms\Launch Parameters Helper.Designer.cs">
       <DependentUpon>Launch Parameters Helper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Legal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Legal.Designer.cs">
+      <DependentUpon>Legal.cs</DependentUpon>
     </Compile>
     <Compile Include="KeyboardBindings.cs" />
     <Compile Include="CustomControls\KeyControlForm.cs">
@@ -158,6 +168,9 @@
     <EmbeddedResource Include="Forms\Launch Parameters Helper.resx">
       <DependentUpon>Launch Parameters Helper.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Legal.resx">
+      <DependentUpon>Legal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +207,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\warning.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BigWikiLogo.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

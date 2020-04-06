@@ -15,12 +15,14 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
 {
     public partial class Launch_Parameters_Helper : Form
     {
+        AdditionalConfig additionalConfig;
         string Doom64SteamLocation = "";
         string Doom64Location { get {
                 if (Doom64SteamLocation != "")
                     return Doom64SteamLocation;
                 else
                     return null; } }
+        private bool Initalized = false;
 
         readonly string[] POSSIBLECMDPARAMETERS = {
             "window",
@@ -37,10 +39,11 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
             "basepath"
         };
 
-        public Launch_Parameters_Helper()
+        public Launch_Parameters_Helper(AdditionalConfig additionalConfig)
         {
             InitializeComponent();
             Doom64SteamLocation = Registry.GetValue("HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Uninstall\\Steam App 1148590", "InstallLocation", "").ToString();
+            this.additionalConfig = additionalConfig;
         }
 
         private void link_CMDGuide_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -50,6 +53,7 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
 
         private void B_Close_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -59,52 +63,64 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
             Cbox_Difficulty.SelectedIndex = 0;
             TB_ForceWidth.Text = "0";
             TB_ForceHeight.Text = "0";
+
+            if (additionalConfig.LastUsedCMD != "")
+            {
+                TB_CMDParameters.Text = additionalConfig.LastUsedCMD;
+                B_ParseCMDs_Click(null, null);
+            }
+            this.Initalized = true;
         }
 
         private void RebuildCmd()
         {
-            StringBuilder sb = new StringBuilder();
-            if(uint.TryParse(TB_ForceWidth.Text, out uint ResolutionX) && uint.TryParse(TB_ForceHeight.Text, out uint ResolutionY))
+            //This is to make sure this is not used on initalization
+            if(this.Initalized)
             {
-                if (ResolutionX >= 640 && ResolutionY >= 480)
+                StringBuilder sb = new StringBuilder();
+                if (uint.TryParse(TB_ForceWidth.Text, out uint ResolutionX) && uint.TryParse(TB_ForceHeight.Text, out uint ResolutionY))
                 {
-                    sb.Append(string.Format("-width {0} ", ResolutionX));
-                    sb.Append(string.Format("-height {0} ", ResolutionY));
+                    if (ResolutionX >= 640 && ResolutionY >= 480)
+                    {
+                        sb.Append(string.Format("-width {0} ", ResolutionX));
+                        sb.Append(string.Format("-height {0} ", ResolutionY));
 
+                    }
                 }
+
+                if (CBox_DisplayMode.SelectedIndex == 1)
+                    sb.Append("-window ");
+                else if (CBox_DisplayMode.SelectedIndex == 2)
+                    sb.Append("-fullscreen ");
+
+                if (CB_SkipIntro.Checked)
+                    sb.Append("-skipmovies ");
+
+                if (numValue_LevelID.Value > 0)
+                    sb.Append(string.Format("-warp {0} -skill {1} ", numValue_LevelID.Value, Cbox_Difficulty.SelectedIndex + 1));
+
+
+                warning_CheatNoMonsters.Visible = CB_NoMonsters.Checked;
+                CB_FastMonsters.Enabled = !CB_NoMonsters.Checked;
+                if (CB_NoMonsters.Checked)
+                {
+                    sb.Append("-nomonsters ");
+                    CB_FastMonsters.Checked = false;
+                }
+                else if (CB_FastMonsters.Checked)
+                    sb.Append("-fast ");
+
+                if (TB_BasePath.Text != "")
+                    sb.Append("-basepath " + string.Format("\"{0}\"", TB_BasePath.Text) + " ");
+
+                foreach (var file in ListBox_FilesToLoad.Items)
+                {
+                    sb.Append("-file " + file.ToString() + " ");
+                }
+
+                TB_CMDParameters.Text = sb.ToString();
             }
-
-            if (CBox_DisplayMode.SelectedIndex == 1)
-                sb.Append("-window ");
-            else if (CBox_DisplayMode.SelectedIndex == 2)
-                sb.Append("-fullscreen ");
-
-            if (CB_SkipIntro.Checked)
-                sb.Append("-skipmovies ");
-
-            if (numValue_LevelID.Value > 0)
-                sb.Append(string.Format("-warp {0} -skill {1} ", numValue_LevelID.Value, Cbox_Difficulty.SelectedIndex+1));
-
-
-            warning_CheatNoMonsters.Visible = CB_NoMonsters.Checked;
-            CB_FastMonsters.Enabled = !CB_NoMonsters.Checked;
-            if (CB_NoMonsters.Checked)
-            {
-                sb.Append("-nomonsters ");
-                CB_FastMonsters.Checked = false;
-            }
-            else if (CB_FastMonsters.Checked)
-                sb.Append("-fast ");
-
-            if (TB_BasePath.Text != "")
-                sb.Append("-basepath " + string.Format("\"{0}\"", TB_BasePath.Text) + " ");
-
-            foreach(var file in ListBox_FilesToLoad.Items)
-            {
-                sb.Append("-file " + file.ToString() + " ");
-            }
-
-            TB_CMDParameters.Text = sb.ToString();
+            
 
         }
 
@@ -198,8 +214,7 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
             ListBox_FilesToLoad.Items.Clear();
             TB_BasePath.Text = "";
 
-            var test = "-width 1920 -height 1080 -window -skipmovies -warp 6 -skill 1 -fast -file DOOM64 -kopia.WAD ";
-            var cmds = test.Trim();
+            var cmds = TB_CMDParameters.Text.Trim();
             if (cmds.StartsWith("-"))
                 cmds = cmds.Substring(1);
             if(cmds.Contains(" -"))
