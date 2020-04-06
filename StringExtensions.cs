@@ -77,5 +77,15 @@ namespace Doom64_Unofficial_Configuration_Tool
 
             return en.ToString();
         }
+
+        public static bool StartsOfAnyOfArray(this string text, string[] arrayToCompareTo, StringComparison comparisonMethod = StringComparison.CurrentCulture)
+        {
+            foreach(var element in arrayToCompareTo)
+            {
+                if (text.StartsWith(element, comparisonMethod))
+                    return true;
+            }
+            return false;
+        }
     }
 }

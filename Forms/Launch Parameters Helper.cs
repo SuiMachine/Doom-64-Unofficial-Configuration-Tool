@@ -22,6 +22,21 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
                 else
                     return null; } }
 
+        readonly string[] POSSIBLECMDPARAMETERS = {
+            "window",
+            "fullscreen",
+            "width",
+            "height",
+            "skipmovies",
+            "warp",
+            "skill",
+            "nomonsters",
+            "fast",
+            "warp",
+            "file",
+            "basepath"
+        };
+
         public Launch_Parameters_Helper()
         {
             InitializeComponent();
@@ -168,6 +183,121 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
         {
             if (ListBox_FilesToLoad.SelectedItem != null)
                 ListBox_FilesToLoad.Items.Remove(ListBox_FilesToLoad.SelectedItem);
+        }
+
+        private void B_ParseCMDs_Click(object sender, EventArgs e)
+        {
+            CBox_DisplayMode.SelectedIndex = 0;
+            TB_ForceWidth.Text = "";
+            TB_ForceHeight.Text = "";
+            CB_SkipIntro.Checked = false;
+            CB_NoMonsters.Checked = false;
+            CB_FastMonsters.Checked = false;
+            Cbox_Difficulty.SelectedIndex = 0;
+            numValue_LevelID.Value = 0;
+            ListBox_FilesToLoad.Items.Clear();
+            TB_BasePath.Text = "";
+
+            var test = "-width 1920 -height 1080 -window -skipmovies -warp 6 -skill 1 -fast -file DOOM64 -kopia.WAD ";
+            var cmds = test.Trim();
+            if (cmds.StartsWith("-"))
+                cmds = cmds.Substring(1);
+            if(cmds.Contains(" -"))
+            {
+                var split = cmds.Split(new string[] { " -" }, StringSplitOptions.None);
+                var reworkedCMDParameters = SplitIntoCMDParameters(split);
+
+                foreach(var parameter in reworkedCMDParameters)
+                {
+                    var paramToLower = parameter.ToLower();
+
+                    if (paramToLower == "window")
+                        CBox_DisplayMode.SelectedIndex = 1;
+                    else if (paramToLower == "fullscreen")
+                        CBox_DisplayMode.SelectedIndex = 2;
+                    else if (paramToLower == "skipmovies")
+                        CB_SkipIntro.Checked = true;
+                    else if (paramToLower.StartsWith("width "))
+                    {
+                        if (uint.TryParse(parameter.StripChunk(), out uint resX))
+                            TB_ForceWidth.Text = resX.ToString();
+                    }
+                    else if (paramToLower.StartsWith("height "))
+                    {
+                        if (uint.TryParse(parameter.StripChunk(), out uint resY))
+                            TB_ForceHeight.Text = resY.ToString();
+                    }
+                    else if (paramToLower.StartsWith("warp "))
+                    {
+                        if (uint.TryParse(parameter.StripChunk(), out uint warpTo))
+                            numValue_LevelID.Value = warpTo;
+                        if (numValue_LevelID.Value > numValue_LevelID.Maximum)
+                            numValue_LevelID.Value = 0;
+                    }
+                    else if (paramToLower.StartsWith("skill "))
+                    {
+                        if (uint.TryParse(parameter.StripChunk(), out uint skill))
+                        {
+                            if (skill > Cbox_Difficulty.Items.Count)
+                                skill = 0;
+                            Cbox_Difficulty.SelectedIndex = (int)skill;
+                        }
+                    }
+                    else if(paramToLower == "nomonsters")
+                    {
+                        CB_NoMonsters.Checked = true;
+                        if(!CB_NoMonsters.Checked)
+                        {
+                            if (paramToLower == "fast")
+                                CB_FastMonsters.Checked = true;
+
+                        }
+                    }
+                    else if(paramToLower.StartsWith("basepath "))
+                    {
+                        TB_BasePath.Text = parameter.StripChunk();
+                    }
+                    else if(paramToLower.StartsWith("file "))
+                    {
+                        var fileToLoad = parameter.StripChunk();
+                        ListBox_FilesToLoad.Items.Add(fileToLoad);
+                    }
+                }
+            }
+        }
+
+        private string[] SplitIntoCMDParameters(string[] split)
+        {
+            if(split.Length > 0)
+            {
+                var result = split.ToList();
+                for (int i = 0; i < result.Count; i++)
+                {
+                    if(!result[i].StartsOfAnyOfArray(POSSIBLECMDPARAMETERS, StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        if (i > 0)
+                        {
+                            result[i - 1] += " -" + result[i]; 
+                        }
+                        result.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                for (int i = 0; i < result.Count; i++)
+                {
+                    result[i] = result[i].Trim();
+                    if(result[i] == "")
+                    {
+                        result.RemoveAt(i);
+                        i--;
+                    }
+                }
+
+                return result.ToArray();
+            }
+            else
+                return split;
         }
     }
 }
