@@ -204,7 +204,7 @@
             this.B_GamepadStart.Name = "B_GamepadStart";
             this.B_GamepadStart.Size = new System.Drawing.Size(83, 41);
             this.B_GamepadStart.TabIndex = 14;
-            this.B_GamepadStart.Text = "Button 16\r\nXbox Start";
+            this.B_GamepadStart.Text = "Button 6\r\nXbox Start";
             this.B_GamepadStart.UseVisualStyleBackColor = true;
             this.B_GamepadStart.Click += new System.EventHandler(this.B_GamepadStart_Click);
             // 
@@ -214,7 +214,7 @@
             this.B_GamepadSelect.Name = "B_GamepadSelect";
             this.B_GamepadSelect.Size = new System.Drawing.Size(83, 41);
             this.B_GamepadSelect.TabIndex = 13;
-            this.B_GamepadSelect.Text = "Button 15\r\nXbox Select";
+            this.B_GamepadSelect.Text = "Button 4\r\nXbox Select";
             this.B_GamepadSelect.UseVisualStyleBackColor = true;
             this.B_GamepadSelect.Click += new System.EventHandler(this.B_GamepadSelect_Click);
             // 
@@ -224,7 +224,7 @@
             this.B_GamepadLeftTrigger.Name = "B_GamepadLeftTrigger";
             this.B_GamepadLeftTrigger.Size = new System.Drawing.Size(83, 41);
             this.B_GamepadLeftTrigger.TabIndex = 12;
-            this.B_GamepadLeftTrigger.Text = "Button 4\r\nLeft Trigger";
+            this.B_GamepadLeftTrigger.Text = "Button 15\r\nLeft Trigger";
             this.B_GamepadLeftTrigger.UseVisualStyleBackColor = true;
             this.B_GamepadLeftTrigger.Click += new System.EventHandler(this.B_GamepadLeftTrigger_Click);
             // 
@@ -234,7 +234,7 @@
             this.B_GamepadRightTrigger.Name = "B_GamepadRightTrigger";
             this.B_GamepadRightTrigger.Size = new System.Drawing.Size(83, 41);
             this.B_GamepadRightTrigger.TabIndex = 11;
-            this.B_GamepadRightTrigger.Text = "Button 6\r\nRight Trigger";
+            this.B_GamepadRightTrigger.Text = "Button 16\r\nRight Trigger";
             this.B_GamepadRightTrigger.UseVisualStyleBackColor = true;
             this.B_GamepadRightTrigger.Click += new System.EventHandler(this.B_GamepadRightTrigger_Click);
             // 

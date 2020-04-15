@@ -93,12 +93,12 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
 
         private void B_GamepadLeftTrigger_Click(object sender, EventArgs e)
         {
-            ReturnKey(GamepadKeys.joy_4);
+            ReturnKey(GamepadKeys.joy_15);
         }
 
         private void B_GamepadRightTrigger_Click(object sender, EventArgs e)
         {
-            ReturnKey(GamepadKeys.joy_6);
+            ReturnKey(GamepadKeys.joy_16);
 
         }
 
@@ -149,12 +149,12 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
 
         private void B_GamepadSelect_Click(object sender, EventArgs e)
         {
-            ReturnKey(GamepadKeys.joy_15);
+            ReturnKey(GamepadKeys.joy_4);
         }
 
         private void B_GamepadStart_Click(object sender, EventArgs e)
         {
-            ReturnKey(GamepadKeys.joy_16);
+            ReturnKey(GamepadKeys.joy_6);
         }
 
         private void B_RightShift_Click(object sender, EventArgs e)
