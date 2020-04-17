@@ -22,7 +22,7 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
                     return Doom64SteamLocation;
                 else
                     return null; } }
-        private bool Initalized = false;
+        private bool RunRebuildEvent = false;
 
         readonly string[] POSSIBLECMDPARAMETERS = {
             "window",
@@ -69,13 +69,13 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
                 TB_CMDParameters.Text = additionalConfig.LastUsedCMD;
                 B_ParseCMDs_Click(null, null);
             }
-            this.Initalized = true;
+            this.RunRebuildEvent = true;
         }
 
         private void RebuildCmd()
         {
             //This is to make sure this is not used on initalization
-            if(this.Initalized)
+            if(this.RunRebuildEvent)
             {
                 StringBuilder sb = new StringBuilder();
                 if (uint.TryParse(TB_ForceWidth.Text, out uint ResolutionX) && uint.TryParse(TB_ForceHeight.Text, out uint ResolutionY))
@@ -203,6 +203,8 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
 
         private void B_ParseCMDs_Click(object sender, EventArgs e)
         {
+            RunRebuildEvent = false;
+
             CBox_DisplayMode.SelectedIndex = 0;
             TB_ForceWidth.Text = "";
             TB_ForceHeight.Text = "";
@@ -261,12 +263,12 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
                     else if(paramToLower == "nomonsters")
                     {
                         CB_NoMonsters.Checked = true;
-                        if(!CB_NoMonsters.Checked)
-                        {
-                            if (paramToLower == "fast")
-                                CB_FastMonsters.Checked = true;
+                    }
+                    else if (!CB_NoMonsters.Checked)
+                    {
+                        if (paramToLower == "fast")
+                            CB_FastMonsters.Checked = true;
 
-                        }
                     }
                     else if(paramToLower.StartsWith("basepath "))
                     {
@@ -279,6 +281,8 @@ namespace Doom64_Unofficial_Configuration_Tool.Forms
                     }
                 }
             }
+            RunRebuildEvent = true;
+
         }
 
         private string[] SplitIntoCMDParameters(string[] split)
