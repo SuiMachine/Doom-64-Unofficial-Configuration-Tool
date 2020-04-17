@@ -42,7 +42,7 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.95699F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 72.04301F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 34F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 53F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 54F));
             this.tableLayoutPanel4.Controls.Add(this.B_EditKeys, 3, 0);
             this.tableLayoutPanel4.Controls.Add(this.labelActionName, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.TB_MenuActivate, 1, 0);
@@ -80,9 +80,9 @@
             // TB_MenuActivate
             // 
             this.TB_MenuActivate.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.TB_MenuActivate.Enabled = false;
             this.TB_MenuActivate.Location = new System.Drawing.Point(99, 52);
             this.TB_MenuActivate.Name = "TB_MenuActivate";
+            this.TB_MenuActivate.ReadOnly = true;
             this.TB_MenuActivate.Size = new System.Drawing.Size(209, 20);
             this.TB_MenuActivate.TabIndex = 1;
             this.TB_MenuActivate.Text = "B_KeysHere";
@@ -90,7 +90,7 @@
             // B_AddKey
             // 
             this.B_AddKey.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.B_AddKey.Location = new System.Drawing.Point(324, 50);
+            this.B_AddKey.Location = new System.Drawing.Point(323, 50);
             this.B_AddKey.Name = "B_AddKey";
             this.B_AddKey.Size = new System.Drawing.Size(24, 23);
             this.B_AddKey.TabIndex = 2;
