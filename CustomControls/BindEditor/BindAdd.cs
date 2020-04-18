@@ -82,13 +82,11 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
         private void B_GamepadY_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_3);
-
         }
 
         private void B_GamepadX_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_2);
-
         }
 
         private void B_GamepadLeftTrigger_Click(object sender, EventArgs e)
@@ -105,25 +103,21 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
         private void B_GamepadLeftAnalogClick_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_7);
-
         }
 
         private void B_GamepadRightAnalogClick_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_8);
-
         }
 
         private void B_GamepadLeftBumper_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_9);
-
         }
 
         private void B_GamepadRightBumper_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_10);
-
         }
 
         private void B_GamepadDpadUp_Click(object sender, EventArgs e)
@@ -134,7 +128,6 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
         private void B_GamepadDpadDown_Click(object sender, EventArgs e)
         {
             ReturnKey(GamepadKeys.joy_12);
-
         }
 
         private void B_GamepadDpadLeft_Click(object sender, EventArgs e)
@@ -160,19 +153,27 @@ namespace Doom64_Unofficial_Configuration_Tool.CustomControls.BindEditor
         private void B_RightShift_Click(object sender, EventArgs e)
         {
             ReturnKey(D64Keys.rshift);
-
         }
 
         private void B_RightCtrl_Click(object sender, EventArgs e)
         {
             ReturnKey(D64Keys.rctrl);
-
         }
 
         private void B_RightAlt_Click(object sender, EventArgs e)
         {
             ReturnKey(D64Keys.ralt);
 
+        }
+
+        private void B_MWheelUp_Click(object sender, EventArgs e)
+        {
+            ReturnKey(D64MouseWheel.mouse_wheel_up);
+        }
+
+        private void B_MWheelDown_Click(object sender, EventArgs e)
+        {
+            ReturnKey(D64MouseWheel.mouse_wheel_down);
         }
     }
 }

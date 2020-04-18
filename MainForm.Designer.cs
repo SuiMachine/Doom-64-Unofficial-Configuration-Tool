@@ -70,6 +70,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.B_ShowLegalPopup = new System.Windows.Forms.Button();
             this.B_LaunchParametersHelper = new System.Windows.Forms.Button();
             this.CB_SkipIntros = new System.Windows.Forms.CheckBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -77,7 +78,6 @@
             this.label15 = new System.Windows.Forms.Label();
             this.toolTipWarning = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip_AdditionalInfo = new System.Windows.Forms.ToolTip(this.components);
-            this.B_ShowLegalPopup = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
@@ -403,7 +403,7 @@
             this.warning_Interpolation.TabIndex = 18;
             this.warning_Interpolation.TabStop = false;
             this.toolTipWarning.SetToolTip(this.warning_Interpolation, "Interpolation fills in blanks between the original internal FPS - leave this opti" +
-        "on enable in playing on FPS higher than 30.");
+        "on enable if playing on FPS higher than 30.");
             // 
             // CB_Interpolation
             // 
@@ -594,6 +594,16 @@
             this.panel2.Size = new System.Drawing.Size(310, 61);
             this.panel2.TabIndex = 5;
             // 
+            // B_ShowLegalPopup
+            // 
+            this.B_ShowLegalPopup.Location = new System.Drawing.Point(179, 30);
+            this.B_ShowLegalPopup.Name = "B_ShowLegalPopup";
+            this.B_ShowLegalPopup.Size = new System.Drawing.Size(121, 23);
+            this.B_ShowLegalPopup.TabIndex = 32;
+            this.B_ShowLegalPopup.Text = "Show Legal Stuff";
+            this.B_ShowLegalPopup.UseVisualStyleBackColor = true;
+            this.B_ShowLegalPopup.Click += new System.EventHandler(this.B_ShowLegalPopup_Click);
+            // 
             // B_LaunchParametersHelper
             // 
             this.B_LaunchParametersHelper.Location = new System.Drawing.Point(7, 30);
@@ -652,16 +662,6 @@
             // 
             this.toolTip_AdditionalInfo.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             this.toolTip_AdditionalInfo.ToolTipTitle = "Additional information";
-            // 
-            // B_ShowLegalPopup
-            // 
-            this.B_ShowLegalPopup.Location = new System.Drawing.Point(179, 30);
-            this.B_ShowLegalPopup.Name = "B_ShowLegalPopup";
-            this.B_ShowLegalPopup.Size = new System.Drawing.Size(121, 23);
-            this.B_ShowLegalPopup.TabIndex = 32;
-            this.B_ShowLegalPopup.Text = "Show Legal Stuff";
-            this.B_ShowLegalPopup.UseVisualStyleBackColor = true;
-            this.B_ShowLegalPopup.Click += new System.EventHandler(this.B_ShowLegalPopup_Click);
             // 
             // MainForm
             // 

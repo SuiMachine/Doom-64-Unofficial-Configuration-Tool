@@ -61,6 +61,8 @@
             this.B_MouseMiddle = new System.Windows.Forms.Button();
             this.B_MouseLeft = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.B_MWheelUp = new System.Windows.Forms.Button();
+            this.B_MWheelDown = new System.Windows.Forms.Button();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -322,6 +324,8 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.B_MWheelDown);
+            this.panel1.Controls.Add(this.B_MWheelUp);
             this.panel1.Controls.Add(this.B_NumpadEnter);
             this.panel1.Controls.Add(this.B_RightAlt);
             this.panel1.Controls.Add(this.B_RightCtrl);
@@ -438,6 +442,26 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Press any keyboard key or select mouse or gamepad key below";
             // 
+            // B_MWheelUp
+            // 
+            this.B_MWheelUp.Location = new System.Drawing.Point(41, 185);
+            this.B_MWheelUp.Name = "B_MWheelUp";
+            this.B_MWheelUp.Size = new System.Drawing.Size(142, 23);
+            this.B_MWheelUp.TabIndex = 9;
+            this.B_MWheelUp.Text = "Mouse Wheel Up";
+            this.B_MWheelUp.UseVisualStyleBackColor = true;
+            this.B_MWheelUp.Click += new System.EventHandler(this.B_MWheelUp_Click);
+            // 
+            // B_MWheelDown
+            // 
+            this.B_MWheelDown.Location = new System.Drawing.Point(41, 214);
+            this.B_MWheelDown.Name = "B_MWheelDown";
+            this.B_MWheelDown.Size = new System.Drawing.Size(142, 23);
+            this.B_MWheelDown.TabIndex = 10;
+            this.B_MWheelDown.Text = "Mouse Wheel Down";
+            this.B_MWheelDown.UseVisualStyleBackColor = true;
+            this.B_MWheelDown.Click += new System.EventHandler(this.B_MWheelDown_Click);
+            // 
             // BindAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -495,5 +519,7 @@
         private System.Windows.Forms.Button B_GamepadDpadLeft;
         private System.Windows.Forms.Button B_GamepadDpadRight;
         private System.Windows.Forms.Button B_GamepadDpadDown;
+        private System.Windows.Forms.Button B_MWheelDown;
+        private System.Windows.Forms.Button B_MWheelUp;
     }
 }
